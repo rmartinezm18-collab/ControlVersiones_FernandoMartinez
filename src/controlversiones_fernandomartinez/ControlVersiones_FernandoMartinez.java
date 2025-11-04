@@ -15,7 +15,7 @@ public class ControlVersiones_FernandoMartinez {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("=== Calculadora de Promedio - Versión 2 ===");
+        System.out.println("=== Calculadora de Promedio - Versión 3 ===");
 
         System.out.print("Ingrese la cantidad de números: ");
         int n = sc.nextInt();
@@ -28,10 +28,17 @@ public class ControlVersiones_FernandoMartinez {
         double[] numeros = new double[n];
         for (int i = 0; i < n; i++) {
             System.out.print("Número " + (i + 1) + ": ");
-            numeros[i] = sc.nextDouble();
+            double valor = sc.nextDouble();
+            // Validación: no permitir números negativos
+            while (valor < 0) {
+                System.out.print("Número inválido. Ingrese un número no negativo: ");
+                valor = sc.nextDouble();
+            }
+            numeros[i] = valor;
         }
 
         double promedio = calcularPromedio(numeros);
         System.out.println("El promedio es: " + promedio);
+        System.out.println("Gracias por usar la Calculadora de Promedio. ¡Hasta luego!");
     }
 }
